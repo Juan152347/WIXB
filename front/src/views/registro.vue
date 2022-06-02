@@ -12,17 +12,19 @@
       <label>Contraseña:</label>
       <input type="text" class="form" v-model="customer.password" />
     </div>
-    <button @click="RegisterUser()">registrarse</button>
+    <button @click="RegisterUserCreate()">registrarse</button>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
+import { apiCustomer } from '../Services/api/customer/apiCustomer'
 
 export default {
   name: 'App',
   setup() {
+    const { RegisterUser } = apiCustomer()
     const counter = ref(0)
     const customer = ref({
       name: '',
@@ -38,32 +40,21 @@ export default {
       console.log(customer.value.cellphone)
       console.log(customer.value.password)
     }
-    async function RegisterUser() {
-      console.log(customer.value.cellphone)
-      const url = 'http://localhost:8080/Users/Customer/Create/'
-      const config = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userId: uuidv4(),
-          phone: customer.value.cellphone,
-          username: customer.value.name,
-          password: customer.value.password
-        })
-      }
-
-      const response = await fetch(url, config)
-      const content = await response.json()
-      console.log(content)
+    async function RegisterUserCreate() {
+      const body = JSON.stringify({
+        userId: uuidv4(),
+        phone: customer.value.cellphone,
+        username: customer.value.name,
+        password: customer.value.password
+      })
+      await RegisterUser(body)
     }
     return {
       counter,
       addCounter,
       customer,
       show,
-      RegisterUser
+      RegisterUserCreate
     }
   }
 }
