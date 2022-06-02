@@ -19,12 +19,12 @@
 <script>
 import { ref } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
-import {apiCustomer} from '../Services/api/customer/apiCustomer'
+import { apiCustomer } from '../Services/api/customer/apiCustomer'
 
 export default {
   name: 'App',
   setup() {
-    const {RegisterUser} = apiCustomer();
+    const { RegisterUser } = apiCustomer()
     const counter = ref(0)
     const customer = ref({
       name: '',
@@ -42,11 +42,11 @@ export default {
     }
     async function RegisterUserCreate() {
       const body = JSON.stringify({
-            userId: uuidv4(),
-            phone: customer.value.cellphone,
-            username: customer.value.name,
-            password: customer.value.password
-          })
+        userId: uuidv4(),
+        phone: customer.value.cellphone,
+        username: customer.value.name,
+        password: customer.value.password
+      })
       await RegisterUser(body)
     }
     return {
