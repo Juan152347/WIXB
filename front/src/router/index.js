@@ -8,9 +8,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue')
+    path: '/Barberos',
+    name: 'Barberos',
+    component: () => import('../views/Barber.vue')
   },
   {
     path: '/about',
