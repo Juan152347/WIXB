@@ -11,6 +11,9 @@ public class Product {
     private ProductQuantity productQuantity;
     private ProductRating productRating;
 
+    public Product() {
+    }
+
     public Product(ProductId productId, ProductDescription productDescription, ProductPrice productPrice, ProductQuantity productQuantity, ProductRating productRating) {
         this.productId = productId;
         this.productDescription = productDescription;
