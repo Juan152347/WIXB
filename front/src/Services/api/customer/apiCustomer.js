@@ -10,7 +10,10 @@ export function apiCustomer() {
     }
 
     const response = await fetch(url, config)
-    const content = await response.json()
+    const content = await response
+    if (!response.ok) {
+      alert('Hubo un error en el registro')
+    } else alert("Registro Exitoso")
     console.log(content)
   }
   async function log(body) {
@@ -25,6 +28,9 @@ export function apiCustomer() {
 
     const response = await fetch(url, config)
     const content = await response.json()
+    if (!response.ok) {
+      alert('Hubo un error de credenciales')
+    } else alert("Login Exitoso")
     console.log(content)
   }
   return {

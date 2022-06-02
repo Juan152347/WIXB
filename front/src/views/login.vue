@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper-list">
     <div class="wrapper-input">
       <label>Nombre:</label>
       <input type="text" class="form" v-model="nombre" />
@@ -40,5 +40,9 @@ export default {
 <style>
 .form {
   margin-top: 2rem;
+}
+.wrapper-list {
+  list-style: none;
+  padding: 2rem;
 }
 </style>
