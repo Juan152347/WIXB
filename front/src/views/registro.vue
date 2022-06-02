@@ -12,49 +12,30 @@
       <label>Contraseña:</label>
       <input type="text" class="form" v-model="customer.password" />
     </div>
-    <button @click="RegisterUserCreate()">registrarse</button>
+    <button @click="Create()">registrarse</button>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
-import { v4 as uuidv4 } from 'uuid'
-import { apiCustomer } from '../Services/api/customer/apiCustomer'
+import { registroUsuario} from '../Uses/registro'
 
 export default {
   name: 'App',
   setup() {
-    const { RegisterUser } = apiCustomer()
-    const counter = ref(0)
+    const {RegisterUserCreate} = registroUsuario()
     const customer = ref({
       name: '',
       cellphone: '',
       password: ''
     })
-
-    function addCounter() {
-      counter.value--
+    function Create(){
+      RegisterUserCreate(customer.value.cellphone,customer.value.name,customer.value.password)
     }
-    function show() {
-      console.log(customer.value.name)
-      console.log(customer.value.cellphone)
-      console.log(customer.value.password)
-    }
-    async function RegisterUserCreate() {
-      const body = JSON.stringify({
-        userId: uuidv4(),
-        phone: customer.value.cellphone,
-        username: customer.value.name,
-        password: customer.value.password
-      })
-      await RegisterUser(body)
-    }
+   
     return {
-      counter,
-      addCounter,
       customer,
-      show,
-      RegisterUserCreate
+      Create
     }
   }
 }
