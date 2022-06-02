@@ -1,6 +1,7 @@
 <template>
   <p>Nombre Barebero : {{ name }}</p>
   <p>Celular Barebero : {{ phone }}</p>
+  <button >Reservar</button>
 </template>
 
 <script lang="js">
@@ -19,8 +20,8 @@ export default {
     },
     setup(){
         return {}
-    }
+    },
 }
 </script>
 
-<style></style>
+<style scoped lang="scss"></style>

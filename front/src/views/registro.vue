@@ -1,5 +1,5 @@
 <template>
-  <div  class="wrapper-list">
+  <div class="wrapper-list">
     <div class="wrapper-input">
       <label>Nombre:</label>
       <input type="text" class="form" v-model="customer.name" />
@@ -18,21 +18,25 @@
 
 <script>
 import { ref } from 'vue'
-import { registroUsuario} from '../Uses/registro'
+import { registroUsuario } from '../Uses/registro'
 
 export default {
   name: 'App',
   setup() {
-    const {RegisterUserCreate} = registroUsuario()
+    const { RegisterUserCreate } = registroUsuario()
     const customer = ref({
       name: '',
       cellphone: '',
       password: ''
     })
-    function Create(){
-      RegisterUserCreate(customer.value.cellphone,customer.value.name,customer.value.password)
+    function Create() {
+      RegisterUserCreate(
+        customer.value.cellphone,
+        customer.value.name,
+        customer.value.password
+      )
     }
-   
+
     return {
       customer,
       Create
