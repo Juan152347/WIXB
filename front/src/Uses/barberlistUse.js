@@ -7,7 +7,7 @@ export function verBarberos() {
   function retornarBarberos() {
     onMounted(async () => {
       BarberS.value = await getBarber()
-      console.log(liBarber.value)
+      console.log(BarberS.value)
     })
     return {
       BarberS
