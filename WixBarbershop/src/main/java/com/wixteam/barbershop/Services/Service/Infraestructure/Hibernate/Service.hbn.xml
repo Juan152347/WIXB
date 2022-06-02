@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.wixteam.barbershop.Services.Service.Domain.Service" table="service">
+        <composite-id name="serviceId" class="com.wixteam.barbershop.Services.Service.Domain.ValueObjects.ServiceId" access="field">
+            <key-property name="value" column="serviceId" access="field" length="255"></key-property>
+        </composite-id>
+        <component name="serviceDetails" class="com.wixteam.barbershop.Services.Service.Domain.ValueObjects.ServiceDetails" access="field">
+            <property name="value" column="details" access="field" type="string"></property>
+        </component>
+        <component name="servicePrice" class="com.wixteam.barbershop.Services.Service.Domain.ValueObjects.ServicePrice" access="field">
+            <property name="value" column="price" access="field" type="double"></property>
+        </component>
+    </class>
+</hibernate-mapping>

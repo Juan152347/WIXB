@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.wixteam.barbershop.Services.Date.Domain.Date" table="meeting">
+        <composite-id name="dateId" class="com.wixteam.barbershop.Services.Date.Domain.ValueObjects.DateId" access="field">
+            <key-property name="value" column="idMeeting" access="field" length="255"></key-property>
+        </composite-id>
+
+        <component name="userId" class="com.wixteam.barbershop.Users.User.Domain.ValueObjects.UserId" access="field">
+            <property name="value" column="clientId" access="field" type="string"></property>
+        </component>
+
+        <component name="barberid" class="com.wixteam.barbershop.Users.User.Domain.ValueObjects.UserId" access="field">
+            <property name="value" column="barberId" access="field" type="string"></property>
+        </component>
+
+        <component name="typeService" class="com.wixteam.barbershop.Services.Date.Domain.ValueObjects.TypeService" access="field">
+            <property name="value" column="serviceType" access="field" type="string"></property>
+        </component>
+
+        <component name= "dateDate" class="com.wixteam.barbershop.Services.Date.Domain.ValueObjects.DateDate" access="field">
+            <property name="value" column="serviceDate" access="field" type="string"></property>
+        </component>
+
+        <component name="serviceId" class="com.wixteam.barbershop.Services.Service.Domain.ValueObjects.ServiceId" access="field">
+            <property name="value" column="serviceId" access="field" type="string"></property>
+        </component>
+        <component name="addressId" class="com.wixteam.barbershop.Users.Address.Domain.ValueObjects.AddressId" access="field">
+            <property name="value" column="addId" access="field" type="string"></property>
+        </component>
+
+
+    </class>
+</hibernate-mapping>

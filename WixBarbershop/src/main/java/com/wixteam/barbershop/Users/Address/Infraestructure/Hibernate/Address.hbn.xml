@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.wixteam.barbershop.Users.Address.Domain.Address" table="address">
+        <composite-id name="addressId" class="com.wixteam.barbershop.Users.Address.Domain.ValueObjects.AddressId" access="field">
+            <key-property name="value" column="addressId" access="field" length="255"></key-property>
+        </composite-id>
+        <component name="addressCity" class="com.wixteam.barbershop.Users.Address.Domain.ValueObjects.AddressCity" access="field">
+            <property name="value" column="city" access="field" type="string"></property>
+        </component>
+        <component name="addressDetail" class="com.wixteam.barbershop.Users.Address.Domain.ValueObjects.AddressDetail" access="field">
+            <property name="value" column="detail" access="field" type="string"></property>
+        </component>
+        <component name="addressAdditionalInfo" class="com.wixteam.barbershop.Users.Address.Domain.ValueObjects.AddressAdditionalInfo" access="field">
+            <property name="value" column="additionalInfo" access="field" type="string"></property>
+        </component>
+        <component name="addressNeighborhodd" class="com.wixteam.barbershop.Users.Address.Domain.ValueObjects.AddressNeighborhood" access="field">
+            <property name="value" column="neighborhood" access="field" type="string"></property>
+        </component>
+    </class>
+</hibernate-mapping>

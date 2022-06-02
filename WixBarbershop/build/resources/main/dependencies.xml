@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Repositorioro-->
+    <bean id="userRepository" class="com.wixteam.barbershop.Users.User.Infraestructure.Hibernate.HibernateUserRepository">
+    </bean>
+    <bean id="serviceRepository" class="com.wixteam.barbershop.Services.Service.Infraestructure.Hibernate.HibernateServiceRepository">
+    </bean>
+    <bean id="dateRepository" class="com.wixteam.barbershop.Services.Date.Infraestructure.Hibernate.HibernateDateRepository">
+    </bean>
+    <bean id="adminRepository" class="com.wixteam.barbershop.Admin.Infraestructure.Hibernate.HibernateAdminRepository">
+    </bean>
+    <bean id="addressRepository" class="com.wixteam.barbershop.Users.Address.Infraestructure.Hibernate.HibernateAddressRepository" >
+    </bean>
+    <bean id="prodRepository" class="com.wixteam.barbershop.Products.Product.Infraestructure.Hibernate.HibernateProductRepository">
+    </bean>
+    <bean id="orderRepository" class="com.wixteam.barbershop.Products.Order.Infraestructure.Hibernate.HibernateOrderRepository">
+    </bean>
+    <!-- Repositorioro-->
+    <!-- RabbitMQ -->
+    <bean id="RabbitMqPublisher" class="com.wixteam.barbershop.Shared.Infraestructure.RabbitMQ.RabbitMqPublisher">
+    </bean>
+    <bean id="RabbitMqEventBus" class="com.wixteam.barbershop.Shared.Infraestructure.RabbitMQ.RabbitMqEventBus">
+        <constructor-arg ref="RabbitMqPublisher"/>
+    </bean>
+    <!-- RabbitMQ -->
+    <!-- Casos de uso Adrees-->
+    <bean id="AddressFindAll" class="com.wixteam.barbershop.Users.Address.Application.All.AddressFindAll">
+        <constructor-arg ref="addressRepository"/>
+    </bean>
+    <bean id="AddressCreator" class="com.wixteam.barbershop.Users.Address.Application.Create.AddressCreator">
+        <constructor-arg ref="addressRepository"/>
+        <constructor-arg ref="RabbitMqEventBus"/>
+    </bean>
+    <!-- Casos de uso Adrees-->
+    <!-- Casos de uso susuario-->
+    <bean id="UserCustomerCreator" class="com.wixteam.barbershop.Users.User.Application.Create.UserCustomerCreator">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+    <bean id="UserBarberCreator" class="com.wixteam.barbershop.Users.User.Application.Create.UserBarberCreator">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+    <bean id="UserFindAll" class="com.wixteam.barbershop.Users.User.Application.All.UserFindAll">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+    <bean id="UserDelete" class="com.wixteam.barbershop.Users.User.Application.Delete.UserDelete">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+    <bean id="userUpdate" class="com.wixteam.barbershop.Users.User.Application.Update.userUpdate">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+    <bean id="loginUser" class="com.wixteam.barbershop.Users.User.Application.Login.loginUser">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+    <!-- Casos de uso susuario-->
+    <!-- Casos de uso Admin-->
+    <bean id="AdminCreator" class="com.wixteam.barbershop.Admin.Application.Create.AdminCreator">
+        <constructor-arg ref="adminRepository"/>
+    </bean>
+    <bean id="AdminFindAll" class="com.wixteam.barbershop.Admin.Application.All.AdminFindAll">
+        <constructor-arg ref="adminRepository" />
+    </bean>
+    <!-- Casos de uso Admin-->
+    <!-- Casos de uso Date-->
+    <bean id="dateCreate" class="com.wixteam.barbershop.Services.Date.Application.Create.dateCreate">
+        <constructor-arg ref="dateRepository" />
+    </bean>
+    <bean id="DateFindAll" class="com.wixteam.barbershop.Services.Date.Application.All.DateFindAll">
+        <constructor-arg ref="dateRepository" />
+    </bean>
+    <bean id="DateDelete" class="com.wixteam.barbershop.Services.Date.Application.Delete.DateDelete">
+        <constructor-arg ref="dateRepository" />
+    </bean>
+    <bean id="dateFind" class="com.wixteam.barbershop.Services.Date.Application.Find.dateFind">
+        <constructor-arg ref="dateRepository" />
+    </bean>
+    <bean id="allDateBarbers" class="com.wixteam.barbershop.Services.Date.Application.All.allDateBarbers">
+        <constructor-arg ref="dateRepository" />
+    </bean>
+    <bean id="allDateCustomers" class="com.wixteam.barbershop.Services.Date.Application.All.allDateCustomers">
+        <constructor-arg ref="dateRepository" />
+    </bean>
+    <!-- Casos de uso Date-->
+    <!-- Casos de uso Products-->
+    <bean id="ProductCreator" class="com.wixteam.barbershop.Products.Product.Application.Create.ProductCreator">
+        <constructor-arg ref="prodRepository"/>
+    </bean>
+    <bean id="ProductFindAll" class="com.wixteam.barbershop.Products.Product.Application.All.ProductFindAll">
+        <constructor-arg ref="prodRepository" />
+    </bean>
+    <!-- Casos de uso Products-->
+    <!-- Casos de uso Service-->
+    <bean id="ServiceFindAll" class="com.wixteam.barbershop.Services.Service.Application.All.ServiceFindAll">
+        <constructor-arg ref="serviceRepository"/>
+    </bean>
+    <bean id="ServiceDelete" class="com.wixteam.barbershop.Services.Service.Application.Delete.ServiceDelete">
+        <constructor-arg ref="serviceRepository"/>
+    </bean>
+    <bean id="ServiceCreator" class="com.wixteam.barbershop.Services.Service.Application.Create.ServiceCreator">
+        <constructor-arg ref="serviceRepository"/>
+    </bean>
+    <bean id="ServiceUpdate" class="com.wixteam.barbershop.Services.Service.Application.Update.ServiceUpdate">
+        <constructor-arg ref="serviceRepository"/>
+    </bean>
+    <!-- Casos de uso Service-->
+    <!-- Casos de uso Orders-->
+    <bean id="OrderfindAll" class="com.wixteam.barbershop.Products.Order.Application.All.OrderFindAll">
+        <constructor-arg ref="orderRepository"/>
+    </bean>
+    <bean id="OrderCreator" class="com.wixteam.barbershop.Products.Order.Application.Create.OrderCreator">
+        <constructor-arg ref="orderRepository"/>
+    </bean>
+    <bean id="OrderDelete" class="com.wixteam.barbershop.Products.Order.Application.Delete.OrderDelete">
+        <constructor-arg ref="orderRepository"/>
+    </bean>
+    <bean id="OrderUpdate" class="com.wixteam.barbershop.Products.Order.Application.Update.OrderUpdate">
+        <constructor-arg ref="orderRepository"/>
+    </bean>
+    <!-- Casos de uso Orders-->
+</beans>

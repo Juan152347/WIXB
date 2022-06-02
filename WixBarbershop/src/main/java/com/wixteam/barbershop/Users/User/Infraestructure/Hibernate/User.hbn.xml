@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.wixteam.barbershop.Users.User.Domain.User" table="sysUser">
+        <composite-id name="userid" class="com.wixteam.barbershop.Users.User.Domain.ValueObjects.UserId" access="field">
+            <key-property name="value" column="userId" access="field" length="255"></key-property>
+        </composite-id>
+        <component name="username" class="com.wixteam.barbershop.Users.User.Domain.ValueObjects.UserName" access="field">
+            <property name="value" column="username" access="field" type="string"></property>
+        </component>
+        <component name="userPassword" class="com.wixteam.barbershop.Users.User.Domain.ValueObjects.UserPassword" access="field">
+            <property name="value" column="userPass" access="field" type="string"></property>
+        </component>
+        <component name="usertype" class="com.wixteam.barbershop.Users.User.Domain.ValueObjects.UserType" access="field">
+            <property name="value" column="usertype" access="field" type="string"></property>
+        </component>
+        <component name="phone" class="com.wixteam.barbershop.Users.User.Domain.ValueObjects.Phone" access="field">
+            <property name="value" column="phone" access="field" type="string"></property>
+        </component>
+    </class>
+</hibernate-mapping>

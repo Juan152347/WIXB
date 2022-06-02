@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.wixteam.barbershop.Products.Order.Domain.Order" table="productOrder">
+        <composite-id name="orderId" class="com.wixteam.barbershop.Products.Order.Domain.ValueObjects.OrderId" access="field">
+            <key-property name="value" column="orderId" access="field" length="255"></key-property>
+        </composite-id>
+        <component name="orderStatus" class="com.wixteam.barbershop.Products.Order.Domain.ValueObjects.OrderStatus" access="field">
+            <property name="value" column="orderStatus" access="field" type="string"></property>
+        </component>
+        <component name="orderDate" class="com.wixteam.barbershop.Products.Order.Domain.ValueObjects.OrderDate" access="field">
+            <property name="value" column="orderDate" access="field" type="string"></property>
+        </component>
+    </class>
+</hibernate-mapping>

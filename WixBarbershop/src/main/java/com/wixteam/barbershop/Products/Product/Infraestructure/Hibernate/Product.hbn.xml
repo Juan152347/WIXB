@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.wixteam.barbershop.Products.Product.Domain.Product" table="product">
+        <composite-id name="productId" class="com.wixteam.barbershop.Products.Product.Domain.ValueObjects.ProductId" access="field">
+            <key-property name="value" column="productId" access="field" length="255"></key-property>
+        </composite-id>
+        <component name="productDescription" class="com.wixteam.barbershop.Products.Product.Domain.ValueObjects.ProductDescription" access="field">
+            <property name="value" column="descript" access="field" type="string"></property>
+        </component>
+        <component name="productPrice" class="com.wixteam.barbershop.Products.Product.Domain.ValueObjects.ProductPrice" access="field">
+            <property name="value" column="price" access="field" type="double"></property>
+        </component>
+        <component name="productRating" class="com.wixteam.barbershop.Products.Product.Domain.ValueObjects.ProductRating" access="field">
+            <property name="value" column="rating" access="field" type="int"></property>
+        </component>
+        <component name="productQuantity" class="com.wixteam.barbershop.Products.Product.Domain.ValueObjects.ProductQuantity" access="field">
+            <property name="value" column="quantity" access="field" type="int"></property>
+        </component>
+    </class>
+</hibernate-mapping>
