@@ -1,7 +1,7 @@
 <template>
   <p>Nombre Barebero : {{ name }}</p>
   <p>Celular Barebero : {{ phone }}</p>
-  <button >Reservar</button>
+  <button>Reservar</button>
 </template>
 
 <script lang="js">

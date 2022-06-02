@@ -1,7 +1,7 @@
 <template>
   <ul class="wrapper-list">
     <li
-      v-for="(barber, index) in liBarber"
+      v-for="(barber, index) in BarberS"
       :key="index"
       @click="Description(barber)"
     >
@@ -17,9 +17,9 @@
 
 <script>
 import { toggleSidebar } from '@/components/sidebar/state'
-import { computed, onMounted, ref } from 'vue'
-import { apiBarber } from '../Services/BarberList/barberList'
+import { computed, ref } from 'vue'
 import BarberDetail from '../components/Barber/BarberDetails.vue'
+import { verBarberos } from '../Uses/barberlistUse'
 
 export default {
   name: 'Barbers',
@@ -27,25 +27,19 @@ export default {
     BarberDetail
   },
   setup() {
-    const { getBarber } = apiBarber()
-    const liBarber = ref([])
+    const { retornarBarberos } = verBarberos()
     const actualBarber = ref(null)
-
-    onMounted(async () => {
-      liBarber.value = await getBarber()
-      console.log(liBarber.value)
-    })
-
+    const { BarberS } = retornarBarberos()
     function Description(barber) {
       console.log(actualBarber)
       actualBarber.value = barber
     }
 
-    const hayBarber = computed(()=> {
-      return actualBarber.value != null;
-    }) 
+    const hayBarber = computed(() => {
+      return actualBarber.value != null
+    })
 
-    return { toggleSidebar, liBarber, Description, actualBarber, hayBarber}
+    return { toggleSidebar, BarberS, Description, actualBarber, hayBarber }
   }
 }
 </script>

@@ -13,15 +13,15 @@
 </template>
 <script>
 import { ref } from 'vue'
-import {loginUsuario} from '../Uses/login'
+import { loginUsuario } from '../Uses/login'
 export default {
   name: 'App',
   setup() {
     const nombre = ref('')
     const pass = ref('')
-    const {logCreate} = loginUsuario()
+    const { logCreate } = loginUsuario()
     async function Create() {
-      logCreate(nombre.value,pass.value)
+      logCreate(nombre.value, pass.value)
     }
     return {
       nombre,
