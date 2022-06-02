@@ -18,13 +18,13 @@ export default {
         <div>V</div>
         <div>S</div>
       </span>
-      <span v-else>Vue Sidebar</span>
+      <span v-else>Wix Barbershop</span>
     </h1>
 
     <SidebarLink to="/registro" icon="fas fa-users">Registro</SidebarLink>
     <SidebarLink to="/login" icon="fas fa-home">login</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
+    <SidebarLink to="/Barberos" icon="fas fa-columns">Barberos</SidebarLink>
+    <SidebarLink to="/Productos" icon="fas fa-users">Productos</SidebarLink>
     <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
 
     <span
@@ -39,9 +39,9 @@ export default {
 
 <style>
 :root {
-  --sidebar-bg-color: #2f855a;
-  --sidebar-item-hover: #38a169;
-  --sidebar-item-active: #276749;
+  --sidebar-bg-color: #563e0f;
+  --sidebar-item-hover: #664d1c;
+  --sidebar-item-active: #3f2e0a;
 }
 </style>
 

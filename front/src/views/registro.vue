@@ -53,7 +53,7 @@ export default {
           password: customer.value.password
         })
       }
-    
+
       const response = await fetch(url, config)
       const content = await response.json()
       console.log(content)
