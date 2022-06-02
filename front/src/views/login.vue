@@ -27,7 +27,6 @@ export default {
       nombre,
       pass,
       Create
-
     }
   }
 }

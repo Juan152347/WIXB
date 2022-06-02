@@ -24,7 +24,9 @@ export default {
     <SidebarLink to="/registro" icon="fas fa-users">Registro</SidebarLink>
     <SidebarLink to="/login" icon="fas fa-home">login</SidebarLink>
     <SidebarLink to="/Barberos" icon="fas fa-columns">Barberos</SidebarLink>
-      <SidebarLink to="/Products" icon="fas fa-align-justify">Productos</SidebarLink>
+    <SidebarLink to="/Products" icon="fas fa-align-justify">
+      Productos
+    </SidebarLink>
     <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
 
     <span
@@ -32,7 +34,7 @@ export default {
       :class="{ 'rotate-180': collapsed }"
       @click="toggleSidebar"
     >
-      <i class="fas fa-angle-double-left"/>
+      <i class="fas fa-angle-double-left" />
     </span>
   </div>
 </template>

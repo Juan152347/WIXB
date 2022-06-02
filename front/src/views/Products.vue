@@ -1,10 +1,10 @@
 <template>
   <ul class="wrapper-list">
-  <li v-for="(producto, index) in productos.content" :key="index">
-    <div class="wrapper-Barber">
-      <p>{{ producto.decription }}</p>
-    </div>
-  </li>
+    <li v-for="(producto, index) in productos.content" :key="index">
+      <div class="wrapper-Barber">
+        <p>{{ producto.decription }}</p>
+      </div>
+    </li>
   </ul>
 </template>
 <script>
@@ -27,7 +27,7 @@ export default {
     }
     return {
       show,
-      productos,
+      productos
     }
   }
 }

@@ -10,27 +10,42 @@
       </div>
     </li>
   </ul>
+  <div v-if="hayBarber">
+    <BarberDetail :name="actualBarber.name" :phone="actualBarber.phone" />
+  </div>
 </template>
 
 <script>
 import { toggleSidebar } from '@/components/sidebar/state'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { apiBarber } from '../Services/BarberList/barberList'
+import BarberDetail from '../components/Barber/BarberDetails.vue'
 
 export default {
+  name: 'Barbers',
+  components: {
+    BarberDetail
+  },
   setup() {
     const { getBarber } = apiBarber()
     const liBarber = ref([])
+    const actualBarber = ref(null)
+
     onMounted(async () => {
       liBarber.value = await getBarber()
       console.log(liBarber.value)
     })
 
     function Description(barber) {
-      alert(barber.phone)
+      console.log(actualBarber)
+      actualBarber.value = barber
     }
 
-    return { toggleSidebar, liBarber, Description }
+    const hayBarber = computed(()=> {
+      return actualBarber.value != null;
+    }) 
+
+    return { toggleSidebar, liBarber, Description, actualBarber, hayBarber}
   }
 }
 </script>
