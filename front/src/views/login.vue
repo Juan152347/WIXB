@@ -8,30 +8,25 @@
       <label>Contraseña:</label>
       <input type="text" class="form" v-model="pass" />
     </div>
-    <button @click="logCreate">Ingresar</button>
+    <button @click="Create">Ingresar</button>
   </div>
 </template>
 <script>
 import { ref } from 'vue'
-import { apiCustomer } from '../Services/api/customer/apiCustomer'
+import {loginUsuario} from '../Uses/login'
 export default {
   name: 'App',
   setup() {
     const nombre = ref('')
     const pass = ref('')
-    const { log } = apiCustomer()
-
-    async function logCreate() {
-      const body = JSON.stringify({
-        name: nombre.value,
-        Pasword: pass.value
-      })
-      await log(body)
+    const {logCreate} = loginUsuario()
+    async function Create() {
+      logCreate(nombre.value,pass.value)
     }
     return {
       nombre,
       pass,
-      logCreate
+      Create
     }
   }
 }
