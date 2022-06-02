@@ -24,7 +24,7 @@ export default {
     <SidebarLink to="/registro" icon="fas fa-users">Registro</SidebarLink>
     <SidebarLink to="/login" icon="fas fa-home">login</SidebarLink>
     <SidebarLink to="/Barberos" icon="fas fa-columns">Barberos</SidebarLink>
-    <SidebarLink to="/Productos" icon="fas fa-users">Productos</SidebarLink>
+      <SidebarLink to="/Products" icon="fas fa-align-justify">Productos</SidebarLink>
     <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
 
     <span

@@ -20,7 +20,7 @@ export function apiCustomer() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body:body
+      body: body
     }
 
     const response = await fetch(url, config)
