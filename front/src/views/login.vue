@@ -2,13 +2,13 @@
   <div>
     <div class="wrapper-input">
       <label>Nombre:</label>
-      <input type="text" class="form" v-model="customer.name" />
+      <input type="text" class="form" v-model="nombre" />
     </div>
     <div class="wrapper-input">
       <label>Contraseña:</label>
-      <input type="text" class="form" v-model="customer.password" />
+      <input type="text" class="form" v-model="pass" />
     </div>
-    <button @click="">Ingresar</button>
+    <button @click="log">Ingresar</button>
   </div>
 </template>
 <script>
@@ -20,23 +20,28 @@
         const pass = ref('')
 
             async function log(){
-            const url = 'http://localhost:8080/Users/Customer/Create/'
+            console.log(nombre.value)
+            console.log(pass.value)
+            const url = 'http://localhost:8080/Users/Login/'
             const config = {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                userId: uuidv4(),
-                phone: customer.value.cellphone,
-                username: customer.value.name,
-                password: customer.value.password
+                  name:nombre.value,
+                  Pasword:pass.value
                 })
             }
             
             const response = await fetch(url, config)
             const content = await response.json()
             console.log(content)
+        }
+        return{
+          nombre,
+          pass,
+          log
         }
 
     }
