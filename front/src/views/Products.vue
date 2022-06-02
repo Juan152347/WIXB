@@ -1,5 +1,4 @@
 <template>
-  <button @click="show">Listar productos</button>
   <ul class="wrapper-list">
     <li v-for="(producto, index) in productos.content" :key="index">
       <div class="wrapper-Barber">
@@ -9,25 +8,15 @@
   </ul>
 </template>
 <script>
-import { onMounted } from 'vue'
-import { ref } from 'vue'
-import { apiProduct } from '../Services/api/products/apiProduct'
+
+import {verProductos} from '../Uses/products'
 export default {
   name: 'App',
   setup() {
-    const { getAllProducts } = apiProduct()
-    const productos = ref([])
+    const { retornarProductos} = verProductos()
+    const {productos} = retornarProductos()
 
-    onMounted(async () => {
-      productos.value = await getAllProducts()
-      console.log(productos.value)
-    })
-
-    function show() {
-      console.log(productos.value)
-    }
     return {
-      show,
       productos
     }
   }
