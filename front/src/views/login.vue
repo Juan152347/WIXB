@@ -23,8 +23,8 @@ export default {
 
     async function logCreate() {
       const body = JSON.stringify({
-        name:nombre.value,
-        Pasword:pass.value
+        name: nombre.value,
+        Pasword: pass.value
       })
       await log(body)
     }
