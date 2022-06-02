@@ -1,5 +1,4 @@
 <template>
-  <button @click="show">Listar productos</button>
   <ul class="wrapper-list">
   <li v-for="(producto, index) in productos.content" :key="index">
     <div class="wrapper-Barber">
