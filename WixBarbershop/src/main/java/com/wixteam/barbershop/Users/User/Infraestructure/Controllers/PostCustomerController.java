@@ -36,7 +36,7 @@ public class PostCustomerController {
 
 
     @PostMapping(value = "/Customer/Create/")
-    public ResponseEntity execute (@RequestBody CustomerRequest request ){
+    public ResponseEntity execute (@RequestBody CustomerRequest request ){c
         creator.execute( request.getUserId(), request.getUsername(), request.getPassword(), request.getPhone());
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
@@ -47,6 +47,7 @@ public class PostCustomerController {
         HashMap<String, String> response = new HashMap<>() {{
             put("error", exception.getMessage());
         }};
+        exception.printStackTrace();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
